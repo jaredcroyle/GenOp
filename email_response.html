@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Optimization Results | Base Bears | NonaWorks24</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #003262;
+            color: #f5f5f5;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f5f5f5;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-box {
+            background-color: #00274c;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #147efb;
+        }
+
+        .sequence-info {
+            background-color: #002145;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(20, 126, 251, 0.3);
+        }
+
+        .sequence-box {
+            background-color: #001a33;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            font-size: 0.9em;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric-card {
+            background-color: #002145;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(20, 126, 251, 0.3);
+        }
+
+        .metric-value {
+            font-size: 1.5em;
+            color: #FDB515;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #147efb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #147efb;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #FDB515;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .results-box {
+                padding: 1rem;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .download-button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Codon Optimization Framework</div>
+        
+        <div class="results-box">
+            <h2>Optimization Results</h2>
+            <p>Your protein sequence has been successfully optimized for E. coli expression using the High-Frequency Codon (HFC) method.</p>
+            
+            <div class="sequence-info">
+                <h3>Input Sequence</h3>
+                <p>Green Fluorescent Protein (GFP)</p>
+                <div class="sequence-box">MSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK</div>
+                
+                <h3>Optimized DNA Sequence</h3>
+                <div class="sequence-box">ATGAGCAAAGGTGAAGAACTGTTTACCGGTGTTGTTCCGATTCTGGTTGAACTGGATGGTGATGTTAACGGTCACAAATTCAGCGTTAGCGGTGAAGGTGAAGGTGATGCGACCTATGGTAAACTGACCCTGAAATTCATTTGCACCACCGGTAAACTGCCGGTTCCGTGGCCGACCCTGGTTACCACCTTCAGCTATGGTGTTCAGTGCTTCAGCCGTTACCCGGATCACATGAAACAGCACGATTTCTTCAAAA</div>
+            </div>
+
+            <div class="metrics">
+                <div class="metric-card">
+                    <h3>CAI Score</h3>
+                    <div class="metric-value">1.0</div>
+                    <p>Codon Adaptation Index</p>
+                </div>
+                <div class="metric-card">
+                    <h3>GC Content</h3>
+                    <div class="metric-value">52.4%</div>
+                    <p>Optimal range: 45-65%</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Length</h3>
+                    <div class="metric-value">720 bp</div>
+                    <p>Base pairs</p>
+                </div>
+            </div>
+
+            <div class="sequence-info">
+                <h3>Optimization Details</h3>
+                <ul>
+                    <li>All codons replaced with highest frequency E. coli codons</li>
+                    <li>No rare codons present in optimized sequence</li>
+                    <li>Maintained original amino acid sequence</li>
+                    <li>Optimized for high expression level</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <a href="#" class="download-button">Download Original FASTA</a>
+            <a href="#" class="download-button">Download Optimized FASTA</a>
+            <a href="#" class="download-button">Download Full Report (PDF)</a>
+        </div>
+    </div>
+</body>
+</html>
