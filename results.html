@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sequence Processing Results | Base Bears | NonaWorks24</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Poppins", sans-serif;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -14,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #000000;
+            background-color: #003262;
             color: #f5f5f5;
         }
 
@@ -23,6 +23,10 @@
             max-width: 800px;
             text-align: center;
             padding: 2rem;
+            background-color: #00274c;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 2rem;
         }
 
         .loading-container {
@@ -33,16 +37,17 @@
         .progress-bar {
             width: 100%;
             height: 20px;
-            background-color: #333;
+            background-color: #002145;
             border-radius: 10px;
             overflow: hidden;
             margin: 20px 0;
+            border: 1px solid #147efb;
         }
 
         .progress {
             width: 0%;
             height: 100%;
-            background-color: #147efb;
+            background-color: #FDB515;
             transition: width 0.5s ease;
         }
 
@@ -50,6 +55,7 @@
             font-size: 1.2em;
             margin: 20px 0;
             color: #f5f5f5;
+            font-weight: 500;
         }
 
         .status-message {
@@ -62,25 +68,35 @@
             display: none;
             text-align: center;
             padding: 2rem;
+            background-color: #002145;
+            border-radius: 8px;
+            border: 1px solid #147efb;
+            margin-top: 2rem;
         }
 
         .success-message h2 {
             color: #147efb;
             font-size: 2em;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .success-message p {
             font-size: 1.2em;
             line-height: 1.6;
             color: #f5f5f5;
+            margin: 1rem 0;
         }
 
         .email-display {
             color: #147efb;
             font-weight: bold;
             font-size: 1.3em;
-            margin: 10px 0;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: rgba(20, 126, 251, 0.1);
+            border-radius: 5px;
+            display: inline-block;
         }
 
         .return-button {
@@ -91,15 +107,80 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
         }
 
         .return-button:hover {
             background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo styles */
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f5f5f5;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                width: 95%;
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2em;
+                margin-bottom: 1rem;
+            }
+            
+            .loading-text {
+                font-size: 1em;
+            }
+            
+            .status-message {
+                font-size: 0.9em;
+            }
+            
+            .success-message {
+                padding: 1rem;
+            }
+            
+            .success-message h2 {
+                font-size: 1.5em;
+            }
+            
+            .success-message p {
+                font-size: 1em;
+            }
+            
+            .email-display {
+                font-size: 1.1em;
+                padding: 8px;
+                margin: 10px 0;
+                word-break: break-all;
+            }
+            
+            .return-button {
+                width: 100%;
+                padding: 10px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="logo">Codon Optimization Framework</div>
     <div class="container">
         <div class="loading-container" id="loadingContainer">
             <div class="progress-bar">
@@ -113,7 +194,7 @@
             <h2>Sequence Processing Complete!</h2>
             <p>Your sequences have been successfully sent to:</p>
             <div class="email-display" id="emailDisplay"></div>
-            <p>You will receive an email with your optimized sequences shortly.</p>
+            <p>You will receive an email with your optimized sequences after completion.</p>
             <a href="index.html" class="return-button">Process Another Sequence</a>
         </div>
     </div>
