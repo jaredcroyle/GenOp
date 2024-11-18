@@ -8,6 +8,37 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mediaqueries.css">
     <script src="https://kit.fontawesome.com/48892bd30e.js" crossorigin="anonymous"></script>
+    <style>
+        .loading-container {
+            display: none;
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #147efb;
+            transition: width 0.5s ease;
+        }
+        .loading-text {
+            margin-top: 10px;
+            color: #f5f5f5;
+        }
+        .status-message {
+            margin-top: 5px;
+            color: #a8a8a8;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <nav id="desktop-nav">
@@ -73,8 +104,13 @@
                 alert("Please enter a protein sequence.");
                 return;
             }
-            // Placeholder for backend processing
-            document.getElementById('output-text').textContent = `Optimized sequence for ${organism} will be displayed here soon!`;
+
+            // Store the sequence and organism in sessionStorage
+            sessionStorage.setItem('sequence', sequence);
+            sessionStorage.setItem('organism', organism);
+            
+            // Redirect to results page
+            window.location.href = 'results.html';
         }
     </script>
 </body>
