@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codon Optimization Framework | Base Bears | NonaWorks24</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <script src="https://kit.fontawesome.com/48892bd30e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Codon Optimization Framework</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#input">Input</a></li>
+                <li><a href="#output">Output</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header id="header">
+        <h1>Optimizer Tool</h1>
+        <p>Optimize protein sequences for efficient gene expression.</p>
+    </header>
+    <main>
+      <section id="input">
+        <h2>Input Protein Sequence</h2>
+        <form id="codonForm" class="input-form">
+            <label for="protein-sequence">Protein Sequence (FASTA format or plain):</label>
+            <textarea id="protein-sequence" name="protein-sequence" rows="10" placeholder="Enter your protein sequence here..."></textarea>
+            <div class="form-bottom">
+                <label for="target-organism">Target Organism:</label>
+                <select id="target-organism" name="target-organism">
+                    <option value="ecoli">E. coli</option>
+                    <option value="yeast">Yeast</option>
+                    <option value="human">Human</option>
+                    <option value="mouse">Mouse</option>
+                </select>
+                <button type="button" class="btn btn-color-1" onclick="runCodonOptimization()">Run Optimization</button>
+            </div>
+        </form>
+      </section>
+        <section id="output">
+            <h2>Optimized Codon Sequence</h2>
+            <div id="output-container">
+                <p id="output-text">Your optimized sequence will appear here.</p>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This tool leverages advanced algorithms to optimize codons in protein sequences for efficient expression in target organisms. By using multiple codon optimizers at once, you can select which one best fits your needs. Ideal for synthetic biology and bioinformatics research.</p>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#input">Input</a></li>
+                <li><a href="#output">Output</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <p>Copyright &#169; 2024 Jared Croyle. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function runCodonOptimization() {
+            const sequence = document.getElementById('protein-sequence').value.trim();
+            const organism = document.getElementById('target-organism').value;
+            if (!sequence) {
+                alert("Please enter a protein sequence.");
+                return;
+            }
+            // Placeholder for backend processing
+            document.getElementById('output-text').textContent = `Optimized sequence for ${organism} will be displayed here soon!`;
+        }
+    </script>
+</body>
+</html>
