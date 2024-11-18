@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Codon Optimization Framework | Base Bears | NonaWorks24</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mediaqueries.css">
@@ -37,6 +37,58 @@
             color: #a8a8a8;
             font-size: 0.9em;
             font-style: italic;
+        }
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 1rem;
+            }
+            
+            #input, #output, #about {
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+            
+            textarea {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .form-bottom {
+                width: 100%;
+            }
+            
+            select, button {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 1.2em;
+                text-align: center;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            #header {
+                margin: 0 1rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
