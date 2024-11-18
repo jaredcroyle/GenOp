@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | Codon Optimization Framework</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <style>
+        body {
+            background-color: #003262;
+            color: #f5f5f5;
+            font-family: "Poppins", sans-serif;
+        }
+        .results-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #00274c;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .sequence-box {
+            background: #002145;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: #f5f5f5;
+            border: 1px solid #147efb;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #147efb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        h1, h2, h3 {
+            color: #f5f5f5;
+        }
+        h2 {
+            margin-bottom: 2rem;
+        }
+        #results-info {
+            margin-top: 2rem;
+        }
+        .loading-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #147efb;
+            transition: width 0.5s ease;
+        }
+        .loading-text {
+            margin-top: 10px;
+            color: #f5f5f5;
+        }
+        .status-message {
+            margin-top: 5px;
+            color: #a8a8a8;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Codon Optimization Framework</div>
+    </nav>
+    <main>
+        <div class="results-container">
+            <div class="loading-container" id="loading-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress-bar"></div>
+                </div>
+                <p class="loading-text">Processing sequence... <span id="progress-text">0%</span></p>
+                <p class="status-message" id="status-message">Initializing optimization process...</p>
+            </div>
+            <div id="results-content" style="display: none;">
+                <h1>Optimization Results</h1>
+                <div id="results-info">
+                    <h2>Target Organism: <span id="organism-display"></span></h2>
+                    <h3>Input Sequence:</h3>
+                    <div class="sequence-box" id="input-sequence"></div>
+                    <h3>Optimized Codon Sequence:</h3>
+                    <div class="sequence-box" id="optimized-sequence"></div>
+                </div>
+                <a href="index.html" class="back-button">← Back to Optimizer</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve stored data
+            const sequence = sessionStorage.getItem('sequence');
+            const organism = sessionStorage.getItem('organism');
+            
+            // Show loading container
+            const loadingContainer = document.getElementById('loading-container');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const statusMessage = document.getElementById('status-message');
+            const resultsContent = document.getElementById('results-content');
+            
+            let progress = 0;
+            const stages = [
+                { threshold: 10, message: "Analyzing sequence composition..." },
+                { threshold: 25, message: "Calculating codon usage bias..." },
+                { threshold: 40, message: "Optimizing rare codons..." },
+                { threshold: 60, message: "Adjusting GC content..." },
+                { threshold: 75, message: "Removing unwanted motifs..." },
+                { threshold: 90, message: "Finalizing optimized sequence..." },
+                { threshold: 100, message: "Optimization complete!" }
+            ];
+            
+            let currentStage = 0;
+            
+            // Simulate progress
+            const interval = setInterval(() => {
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    // Show results after a short delay
+                    setTimeout(() => {
+                        loadingContainer.style.display = 'none';
+                        resultsContent.style.display = 'block';
+                        // Display the data
+                        document.getElementById('organism-display').textContent = organism.toUpperCase();
+                        document.getElementById('input-sequence').textContent = sequence;
+                        
+                        // For demo purposes, create a "optimized" sequence (just reversed in this case)
+                        const optimizedSequence = sequence.split('').reverse().join('');
+                        document.getElementById('optimized-sequence').textContent = optimizedSequence;
+                        
+                        // Clear the session storage
+                        sessionStorage.clear();
+                    }, 500);
+                } else {
+                    // Add a small random increment (slower progress)
+                    progress += Math.random() * 2;
+                    if (progress > 100) progress = 100;
+                    
+                    // Update progress bar and text
+                    progressBar.style.width = `${progress}%`;
+                    progressText.textContent = `${Math.round(progress)}%`;
+                    
+                    // Update status message based on progress stages
+                    if (currentStage < stages.length && progress >= stages[currentStage].threshold) {
+                        statusMessage.textContent = stages[currentStage].message;
+                        currentStage++;
+                    }
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
