@@ -210,6 +210,22 @@ textarea {
     gap: 1rem;
 }
 
+.input-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-form input[type="email"]:focus {
+    outline: none;
+    border-color: #147efb;
+    box-shadow: 0 0 5px rgba(20, 126, 251, 0.3);
+}
+
 /* Center the dropdown and button below the textarea */
 .form-bottom {
     display: flex;
@@ -246,4 +262,3 @@ textarea {
     margin: 0 10rem; /* Same as the sections */
     padding-top: 4vh; /* Optional: Add some space at the top if needed */
 }
-  
